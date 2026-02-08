@@ -70,26 +70,19 @@
         sender:'robot'
       }];
 
+      const chatMessageComponents = chatMessages.map((chatMessage) => {
+        return(
+          <ChatMessage
+            message={chatMessage.message}
+            sender={chatMessage.sender}
+            />
+        );
+      });
 
       return (
         <> 
         <ChatInput />
-        <ChatMessage 
-          message="hello Chatbot" 
-          sender ="user"
-        />
-        <ChatMessage 
-          message ="Hello! How can I help you?" 
-          sender ="robot"
-        />
-        <ChatMessage 
-         message = "can you get me the todays date?" 
-         sender ="user"
-        />
-        <ChatMessage 
-         message = "Today is February 7" 
-         sender ="robot"
-        />
+        {chatMessageComponents}
       </>
       )
      }
