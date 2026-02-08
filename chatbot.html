@@ -56,6 +56,21 @@
      } 
 
      function App() {
+      const chatMessages = [{
+        message:'hello Chatbot',
+        sender:'user'
+      }, {
+        message:'Hello! How can I help you?',
+        sender:'robot'
+      },{
+        message:'can you get me the todays date?',
+        sender:'user'
+      },{
+        message:'Today is February 7',
+        sender:'robot'
+      }];
+
+
       return (
         <> 
         <ChatInput />
@@ -64,11 +79,12 @@
           sender ="user"
         />
         <ChatMessage 
-          message ="Hello! How can I help you" 
+          message ="Hello! How can I help you?" 
           sender ="robot"
         />
         <ChatMessage 
-         message = "can you get me the todays date?" sender ="user"
+         message = "can you get me the todays date?" 
+         sender ="user"
         />
         <ChatMessage 
          message = "Today is February 7" 
