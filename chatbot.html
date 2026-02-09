@@ -15,7 +15,7 @@
 
     <script type="text/babel">
 
-     function ChatInput (){
+     function ChatInput ({ chatMessage, setChatMessages}){
       const [inputText, setInputText] = React.useState('');
 
 
@@ -78,6 +78,24 @@
      } 
 
      function ChatMessages(){
+      
+      return(
+        <>
+
+         {chatMessages.map((chatMessage) => {
+          return(
+            <ChatMessage
+              message={chatMessage.message}
+              sender={chatMessage.sender}
+              key={chatMessage.id}
+              />
+          );
+        })}
+        </>
+      );
+     }
+
+     function App() {
       const [chatMessages,setChatMessages] = React.useState([{
       
         message:'hello Chatbot',
@@ -102,29 +120,15 @@
       // const setChatMessages = array[1];
 
 
-
-
-      return(
-        <>
-
-         {chatMessages.map((chatMessage) => {
-          return(
-            <ChatMessage
-              message={chatMessage.message}
-              sender={chatMessage.sender}
-              key={chatMessage.id}
-              />
-          );
-        })}
-        </>
-      );
-     }
-
-     function App() {
       return (
         <> 
-        <ChatInput />
-        <ChatMessages />
+        <ChatInput 
+          chatMessage={chatMessages}
+          setChatMessages={setChatMessages}
+        />
+        <ChatMessages 
+        chatMessages={chatMessages}
+        />
       </>
       )
      }
